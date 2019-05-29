@@ -1,14 +1,13 @@
-version: '3.4'
+version: '3.7'
 
 services:
   db:
     image: postgres
-    volumes:
-      - ./tmp/db:/var/lib/postgresql/data
   cnab_parser:
     build: .
     volumes:
       - .:/cnab_parser
+      - gems:/gems
     ports:
       - "3000:3000"
     depends_on:

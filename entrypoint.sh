@@ -7,6 +7,8 @@ set -e
 # desativa BUNDLE_APP_CONFIG para .bundle ficar na raiz do projeto
 unset BUNDLE_APP_CONFIG
 bundle --path /gems
+bundle exec rake db:create
+bundle exec rake db:migrate
 
 # Then exec the container's main process (what's set as CMD in the Dockerfile).
 exec "$@"
