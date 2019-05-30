@@ -4,6 +4,8 @@ services:
   db:
     image: postgres
   cnab_parser:
+    tty: true
+    stdin_open: true
     build: .
     volumes:
       - .:/cnab_parser

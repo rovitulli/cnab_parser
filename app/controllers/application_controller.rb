@@ -8,6 +8,17 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/proccess_file' do
-    erb :table
+    require 'pry'; binding.pry
+
+      filename = params[:file][:filename]
+      file = params[:file][:tempfile]
+
+      public_dir = File.expand_path(File.join(__FILE__, '../../public'))
+
+      file_path = File.join(public_dir, "/", filename )
+
+      File.open(file_path, 'wb') do |f|
+        f.write(file.read)
+      end
   end
 end
