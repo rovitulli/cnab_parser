@@ -1,24 +1,25 @@
 ##
 # Mae de todos controllers
 class ApplicationController < Sinatra::Base
-  set :views, File.expand_path(File.join(__FILE__, '../../views'))
+  register Sinatra::Contrib
+  set :root, CnabParser::APP_DIR
+  set :session_secret, 'isto está muito mais seguro agora ha HA HA HA'
+  set :lock, true
+
+  #set :views, File.expand_path(File.join(__FILE__, '../../views'))
 
   get '/' do
     erb :index
   end
 
   post '/proccess_file' do
-    require 'pry'; binding.pry
+    result = ProcessFile.call(params)
 
-      filename = params[:file][:filename]
-      file = params[:file][:tempfile]
-
-      public_dir = File.expand_path(File.join(__FILE__, '../../public'))
-
-      file_path = File.join(public_dir, "/", filename )
-
-      File.open(file_path, 'wb') do |f|
-        f.write(file.read)
-      end
+    if result.success?
+      'vitulli, deu certo!'
+    else
+      flash.now[:message] = t(result.message)
+      erb :index
+    end
   end
 end

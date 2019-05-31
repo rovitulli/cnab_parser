@@ -1,6 +1,8 @@
 module CnabParser
   module_function
 
+  APP_DIR = Dir.pwd
+
   def production?
     env == 'production'
   end

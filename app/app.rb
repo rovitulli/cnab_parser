@@ -1,7 +1,12 @@
 # myapp.rb
-require 'sinatra/base'
+require 'sinatra'
+require 'sinatra/contrib'
 require 'interactor'
-require_relative 'lib/cnab_parser'
+
+Dir['./interactors/**/*.rb'].each(&method(:require))
+Dir['./organizers/**/*.rb'].each(&method(:require))
+
+require './lib/cnab_parser'
 require_relative 'controllers/application_controller'
 
 class App < Sinatra::Base
