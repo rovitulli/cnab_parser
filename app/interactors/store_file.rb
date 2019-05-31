@@ -11,14 +11,8 @@ class StoreFile
     filename = context.file[:filename]
     file = context.file[:tempfile]
 
-    public_dir = File.expand_path(File.join(__FILE__, '../../public'))
-
-    file_path = File.join(public_dir, "/", filename )
-
-    File.open(file_path, 'wb') do |f|
-      f.write(file.read)
-    end
-
+    CnabParser::Storer.store(filename, file)
+    
     [204, {}, '']
   end
 

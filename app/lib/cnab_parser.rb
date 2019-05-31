@@ -19,3 +19,5 @@ module CnabParser
     ENV['RUBY_ENV'] || 'development'
   end
 end
+
+require './lib/cnab_parser/storer'
