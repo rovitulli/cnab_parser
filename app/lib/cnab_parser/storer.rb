@@ -5,7 +5,6 @@ module CnabParser
     module_function
 
     def store(filename, file)
-      require 'pry'; binding.pry
       temp_dir = CnabParser::APP_DIR + "/tmp"
       file_path = File.join(temp_dir, "/", filename )
 

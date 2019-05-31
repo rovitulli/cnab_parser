@@ -2,9 +2,9 @@
 class ProcessFile
   include Interactor::Organizer
 
-  organize StoreFile
-           #ValidateFileFormat,
-           #ValidateFileContent,
-           #ParseFileContent,
+  organize ValidateFile,
+           StoreFile,
+           ParseFileContent,
+           ValidateFileContent
            #RecordFileInformation
 end

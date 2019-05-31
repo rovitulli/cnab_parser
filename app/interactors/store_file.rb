@@ -12,8 +12,6 @@ class StoreFile
     file = context.file[:tempfile]
 
     CnabParser::Storer.store(filename, file)
-    
-    [204, {}, '']
   end
 
   def fail

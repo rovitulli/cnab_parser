@@ -1,4 +1,8 @@
 FROM ruby:2.6.3
+ENV LANG=C.UTF-8\
+    LANGUAGE=C.UTF-8\
+    LC_ALL=C.UTF-8\
+    TZ=America/Sao_Paulo
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 VOLUME /gems
 VOLUME /cnab_parser

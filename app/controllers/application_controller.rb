@@ -1,12 +1,12 @@
 ##
 # Mae de todos controllers
 class ApplicationController < Sinatra::Base
+  register Sinatra::Flash
+  enable :sessions
   register Sinatra::Contrib
   set :root, CnabParser::APP_DIR
   set :session_secret, 'isto está muito mais seguro agora ha HA HA HA'
   set :lock, true
-
-  #set :views, File.expand_path(File.join(__FILE__, '../../views'))
 
   get '/' do
     erb :index
@@ -16,10 +16,9 @@ class ApplicationController < Sinatra::Base
     result = ProcessFile.call(params)
 
     if result.success?
-      'vitulli, deu certo!'
+      result.inspect
     else
-      flash.now[:message] = t(result.message)
-      erb :index
+      result.message
     end
   end
 end
