@@ -14,6 +14,6 @@ class ValidateFile
   end
 
   def fail
-    context.fail!(message: "File must be txt type", rack_response:[422, {}, ''])
+    context.fail!(message: "File must be 'txt' type")
   end
 end

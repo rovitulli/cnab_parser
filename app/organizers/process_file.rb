@@ -5,6 +5,7 @@ class ProcessFile
   organize ValidateFile,
            StoreFile,
            ParseFileContent,
-           ValidateFileContent
-           #RecordFileInformation
+           ValidateFileContent,
+           RecordStoresInformation
+ #          RecordTransationsInformation
 end

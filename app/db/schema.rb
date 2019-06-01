@@ -15,4 +15,13 @@ ActiveRecord::Schema.define(version: 2019_05_29_174309) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "stores", force: :cascade do |t|
+    t.string "name"
+    t.string "owner"
+    t.string "cpf_code"
+    t.float "current_balance", default: 0.0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end

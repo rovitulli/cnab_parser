@@ -4,10 +4,10 @@ class StoreFile
   include Interactor
 
   def call
-    fail unless stored?
+    fail unless stored
   end
 
-  def stored?
+  def stored
     filename = context.file[:filename]
     file = context.file[:tempfile]
 
@@ -15,6 +15,6 @@ class StoreFile
   end
 
   def fail
-    context.fail!(message: 'Could not store file', rack_response: [422, {}, ''])
+    context.fail!(message: 'Could not store file')
   end
 end
