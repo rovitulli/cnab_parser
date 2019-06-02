@@ -10,5 +10,14 @@
             <input type="submit" value="Upload file">
         </form>
     </body>
+    <% @data.each do |store, content| %>
+        <h1><%= store %></h1>
+        <p><%= content[:info].owner %> ||| <%= content[:info].current_balance %> </p>
+        <p><%= content[:info].cpf_code %></p>
+        <% content[:transactions].each do |transaction| %>
+            
+            <p><%= transaction.readable_type %> | <%= CnabParser::TransactionBehavior.calculate(transaction.transaction_type.to_s).to_s %> <%= transaction.value %></p>
+        <% end %>
+    <% end %>
 </html>
 

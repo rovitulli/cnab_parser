@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_29_174309) do
+ActiveRecord::Schema.define(version: 2019_06_01_142523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(version: 2019_05_29_174309) do
     t.string "owner"
     t.string "cpf_code"
     t.float "current_balance", default: 0.0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.integer "store_id"
+    t.integer "transaction_type"
+    t.string "readable_type"
+    t.datetime "datetime"
+    t.float "value"
+    t.float "balance", default: 0.0
+    t.string "card_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

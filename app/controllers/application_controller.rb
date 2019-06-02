@@ -9,7 +9,14 @@ class ApplicationController < Sinatra::Base
   set :lock, true
 
   get '/' do
-    erb :index
+      hashed = {}
+      Store.all.each do |store|
+        hashed[store.name] = { info: store,
+                               transactions: store.transactions}
+      end
+
+      @data = hashed
+      erb :index
   end
 
   post '/proccess_file' do

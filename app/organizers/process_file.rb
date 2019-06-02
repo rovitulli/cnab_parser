@@ -6,6 +6,13 @@ class ProcessFile
            StoreFile,
            ParseFileContent,
            ValidateFileContent,
-           RecordStoresInformation
- #          RecordTransationsInformation
+           SanitizeNames,
+           SaveStoresInformation,
+           FetchStoresIds,
+           NormalizeTransactionValue,
+           NormalizeDate,
+           MakeReadableType,
+           TransactionBehavior,
+           SaveTransactionsInformation
+           # remove_file
 end
