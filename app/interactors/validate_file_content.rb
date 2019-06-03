@@ -1,3 +1,6 @@
+##
+# validates if parsed file has any content
+
 class ValidateFileContent
   include Interactor
 

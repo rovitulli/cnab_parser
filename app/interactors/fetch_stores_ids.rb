@@ -1,3 +1,5 @@
+##
+# After saving stores in DB, this class fetches IDs by name
 class FetchStoresIds
   include Interactor
 
@@ -17,6 +19,6 @@ class FetchStoresIds
   end
 
   def fail
-    context.fail!(message: "could not fetch store")
+    context.fail!(message: "Could not fetch store")
   end
 end

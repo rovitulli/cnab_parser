@@ -1,7 +1,6 @@
 # myapp.rb
 require 'sinatra'
 require 'sinatra/contrib'
-require 'sinatra/flash'
 require 'sinatra/activerecord'
 require 'interactor'
 

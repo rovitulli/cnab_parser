@@ -1,3 +1,5 @@
+##
+# Fetch current store balance from DB
 module CnabParser
   class StoreBalanceFetcher
     attr_reader :store_id, :store_class

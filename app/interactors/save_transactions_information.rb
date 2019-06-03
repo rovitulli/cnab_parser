@@ -1,3 +1,5 @@
+##
+# Saves transactions into DB
 class SaveTransactionsInformation
   include Interactor
 

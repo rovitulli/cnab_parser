@@ -1,3 +1,5 @@
+##
+# Clean spaces and capitalize names
 class SanitizeNames
   include Interactor
 

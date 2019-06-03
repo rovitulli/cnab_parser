@@ -1,3 +1,6 @@
+##
+# Calculate value pos transaction
+
 module CnabParser
   class BalanceCalculator
     attr_reader :store_current_balance,

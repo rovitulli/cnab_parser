@@ -1,3 +1,5 @@
+##
+# Normalizes given date and time
 module CnabParser
   class DateNormalizer
     attr_reader :date, :time, :datetime_ruby_class

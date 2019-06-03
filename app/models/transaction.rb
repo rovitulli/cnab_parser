@@ -1,3 +1,5 @@
+##
+# Transaction class
 class Transaction < ActiveRecord::Base
   belongs_to :store
   after_save :update_store_balance

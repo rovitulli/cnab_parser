@@ -1,3 +1,5 @@
+##
+# Calls lib that calculate the transaction value
 class NormalizeTransactionValue
   include Interactor
 
@@ -6,7 +8,7 @@ class NormalizeTransactionValue
   end
 
   def call
-    normalize
+    fail unless normalize
   end
 
   def normalize

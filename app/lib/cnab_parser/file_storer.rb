@@ -1,3 +1,5 @@
+##
+# Stores file in filesystem
 module CnabParser
   class FileStorer
     attr_reader :file, :file_path, :ruby_file

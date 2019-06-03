@@ -10,7 +10,6 @@ source 'https://rubygems.org' do
   gem 'pg'
   gem 'sinatra'
   gem 'sinatra-contrib'
-  gem 'sinatra-flash'
   gem 'unicorn'
   gem 'activerecord'
   gem 'sinatra-activerecord'

@@ -1,3 +1,5 @@
+##
+# Normalizes and calculates transaction values 
 module CnabParser
   class ValueCalculator
     attr_reader :value
@@ -7,7 +9,7 @@ module CnabParser
     end
 
     def calculate
-      value.to_i / 100
+      value.to_i / 100.00
     end
   end
 end

@@ -1,3 +1,5 @@
+##
+# Calls file parser and insert parsed values into context
 class ParseFileContent
   include Interactor
 

@@ -1,3 +1,5 @@
+##
+# Transalates type into readable
 module CnabParser
   class TransactionTypeTranslator
     attr_reader :transaction_type

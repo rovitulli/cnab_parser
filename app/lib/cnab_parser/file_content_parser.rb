@@ -1,3 +1,5 @@
+##
+# Parsers files
 module CnabParser
   class FileContentParser
     attr_reader :file_path, :ruby_file_class

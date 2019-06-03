@@ -1,3 +1,5 @@
+##
+# Call lib that tranlate transaction type to a human readable format
 class MakeReadableType
   include Interactor
 
@@ -6,7 +8,7 @@ class MakeReadableType
   end
 
   def call
-    readable_type
+    fail unless readable_type
   end
 
   def readable_type
@@ -14,5 +16,9 @@ class MakeReadableType
       args = { "transaction_type" => transaction["transaction_type"] }
       transaction["readable_type"] = context.transaction_type_translator.new(args).translate
     end
+  end
+
+  def fail
+    context.fail!(message: "Could make readable transaction type")
   end
 end

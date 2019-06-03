@@ -1,3 +1,5 @@
+##
+# Calls Store model to create stores
 class SaveStoresInformation
   include Interactor
 

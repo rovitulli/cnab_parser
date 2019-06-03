@@ -1,3 +1,5 @@
+##
+# Find store by name
 module CnabParser
   class StoreFinder
     attr_reader :store_name, :store_class

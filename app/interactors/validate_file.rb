@@ -1,3 +1,6 @@
+##
+# Validates file extension
+
 class ValidateFile
   include Interactor
 

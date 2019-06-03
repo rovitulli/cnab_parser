@@ -1,3 +1,5 @@
+##
+# Transalates numeric type into behavior
 module CnabParser
   class TransactionBehaviorTranslator
     attr_reader :transaction_type

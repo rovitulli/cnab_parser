@@ -1,3 +1,5 @@
+##
+# Main app module
 module CnabParser
   module_function
 

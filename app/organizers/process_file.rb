@@ -1,4 +1,5 @@
-# Procedimento do POST /api/v1/medias/mute
+##
+# This organizes all interactor proccess
 class ProcessFile
   include Interactor::Organizer
 
@@ -14,5 +15,4 @@ class ProcessFile
            MakeReadableType,
            TransactionBehavior,
            SaveTransactionsInformation
-           # remove_file
 end

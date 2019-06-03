@@ -1,3 +1,6 @@
+##
+# Calls file storer to store file into local filesystem
+
 class StoreFile
   include Interactor
 

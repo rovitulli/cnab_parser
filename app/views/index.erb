@@ -6,6 +6,11 @@
     </head>
     <body>
     <div class="container">
+            <% if @message %>
+                <div class="alert alert-dark" role="alert">
+                    <%= @message %>
+                </div>
+            <% end %>
         <div class="jumbotron">
             <h1>Upload CNAB</h1>
             
@@ -33,13 +38,13 @@
                         <tr>
                             <th scope="row"><%= transaction.readable_type %></th>
                             <td><%= transaction.datetime %></td>
-                            <td><%= transaction_behavior(transaction.transaction_type) %> R$ <%=transaction.value %></td>
+                            <td><%= transaction_behavior(transaction.transaction_type) %>  <%= to_currency(transaction.value) %></td>
                         </tr>
                     <% end %>
                         <tr style="background-color:#efefef">
                             <th>Saldo Final</th>
                             <td></td>
-                            <td>R$<%= content[:info].current_balance %></td>
+                            <td><%= to_currency(content[:info].current_balance) %></td>
                         </tr>
                     </tbody>
                     <tr>
