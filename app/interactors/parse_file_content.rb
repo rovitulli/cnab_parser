@@ -1,30 +1,21 @@
 class ParseFileContent
   include Interactor
 
-  PARSE_REGEX = /^(?<transaction_type>[0-9]{1})(?<date>[0-9]{8})(?<value>[0-9]{10})(?<cpf_code>[0-9]{11})(?<card>.{12})(?<time>[0-9]{6})(?<owner>.{14})(?<name>.{18,})/
+  before do
+    context.file_content_parser ||= CnabParser::FileContentParser
+    context.file_path ||= File.join(CnabParser::APP_DIR, "/tmp", context.file["filename"])
+  end
 
   def call
     fail unless parse_file
   end
 
-  def file_path
-    File.join(CnabParser::APP_DIR, "/tmp", context.file["filename"])
+  def parse_file
+    args = { "file_path" => context.file_path }
+    context.filedata = context.file_content_parser.new(args).parse
   end
 
   def fail
     context.fail!(message: "Could not parse file properly")
-  end
-
-  def parse_file
-    data = []
-
-    File.foreach(file_path) do |line|
-      result = line.match(PARSE_REGEX)
-      next unless result
-      #named_capures transform MatchData in simple hashes
-      data << result.named_captures
-    end
-
-    context.filedata = data
   end
 end

@@ -1,9 +1,15 @@
 module CnabParser
-  module DateNormalizer
-    module_function
+  class DateNormalizer
+    attr_reader :date, :time, :datetime_ruby_class
 
-    def normalize(date, time)
-      DateTime.parse(date+time)
+    def initialize(args)
+      @date = args.fetch("date")
+      @time = args.fetch("time")
+      @datetime_ruby_class = args.fetch("datetime_ruby_class", DateTime)
+    end
+
+    def normalize
+      datetime_ruby_class.parse(date+time)
     end
   end
 end

@@ -1,6 +1,6 @@
 module CnabParser
-  module TransactionBehavior
-    module_function
+  class TransactionBehaviorTranslator
+    attr_reader :transaction_type
 
     BEHAVIOR_DICTIONARY = { '1' => :+,
                             '2' => :-,
@@ -12,7 +12,12 @@ module CnabParser
                             '8' => :+,
                             '9' => :-
                           }
-    def calculate(transaction_type)
+
+    def initialize(args)
+      @transaction_type = args.fetch("transaction_type")
+    end
+
+    def translate
       BEHAVIOR_DICTIONARY[transaction_type]
     end
   end

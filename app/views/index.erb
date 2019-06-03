@@ -16,7 +16,7 @@
         <p><%= content[:info].cpf_code %></p>
         <% content[:transactions].each do |transaction| %>
             
-            <p><%= transaction.readable_type %> | <%= CnabParser::TransactionBehavior.calculate(transaction.transaction_type.to_s).to_s %> <%= transaction.value %></p>
+            <p><%= transaction.readable_type %>  <%= transaction.value %></p>
         <% end %>
     <% end %>
 </html>

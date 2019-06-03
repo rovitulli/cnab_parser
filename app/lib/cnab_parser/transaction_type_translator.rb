@@ -1,6 +1,6 @@
 module CnabParser
-  module TransactionTypeTranslator
-    module_function
+  class TransactionTypeTranslator
+    attr_reader :transaction_type
 
     DICTIONARY = { '1' => "Débito",
                    '2' => "Boleto",
@@ -12,7 +12,11 @@ module CnabParser
                    '8' => "Recebimento DOC",
                    '9' => "Aluguel" } 
 
-    def translate(transaction_type)
+    def initialize(args)
+      @transaction_type = args.fetch("transaction_type")
+    end
+
+    def translate
       DICTIONARY[transaction_type]
     end
   end

@@ -20,13 +20,13 @@ module CnabParser
   end
 end
 
-require './lib/cnab_parser/storer'
+require './lib/cnab_parser/file_storer'
 require './lib/cnab_parser/store_finder'
-require './lib/cnab_parser/calculate_balance'
+require './lib/cnab_parser/balance_calculator'
 require './lib/cnab_parser/date_normalizer'
-require './lib/cnab_parser/transaction_behavior'
+require './lib/cnab_parser/transaction_behavior_translator'
 require './lib/cnab_parser/transaction_type_translator'
 require './lib/cnab_parser/value_calculator'
 require './lib/cnab_parser/store_balance_fetcher'
-require './lib/cnab_parser/calculate_balance'
+require './lib/cnab_parser/file_content_parser'
 

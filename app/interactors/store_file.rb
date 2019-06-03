@@ -1,17 +1,18 @@
-##
-# Verifica se o cliente HTTP (um navegador, normalmente) esta solicitando JSON
 class StoreFile
   include Interactor
 
+  before do
+    context.file_storer ||= CnabParser::FileStorer
+  end
   def call
-    fail unless stored
+    fail unless store
   end
 
-  def stored
-    filename = context.file[:filename]
-    file = context.file[:tempfile]
+  def store
+    args = { "filename" => context.file[:filename],
+             "file" => context.file[:tempfile] }
 
-    CnabParser::Storer.store(filename, file)
+    context.file_storer.new(args).store
   end
 
   def fail

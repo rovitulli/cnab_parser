@@ -2,7 +2,7 @@ class SanitizeNames
   include Interactor
 
   def call
-    sanitize
+    fail unless sanitize
   end
 
   def sanitize
@@ -10,5 +10,9 @@ class SanitizeNames
       transaction["name"] = transaction["name"].strip.capitalize
       transaction["owner"] = transaction["owner"].strip.capitalize
     end
+  end
+
+  def fail
+    context.fail!(message: "could not sanitize names")
   end
 end
