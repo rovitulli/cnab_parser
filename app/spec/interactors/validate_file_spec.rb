@@ -3,7 +3,7 @@
 describe ValidateFile, '#call' do
   subject(:context) { described_class.call(input) }
 
-  let(:input) { { file: { 'filename' => 'text.txt' } } }
+  let(:input) { { file: { filename: 'text.txt' } } }
 
   before do
     context

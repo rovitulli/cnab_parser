@@ -16,7 +16,7 @@ module CnabParser
                           }
 
     def initialize(args)
-      @transaction_type = args.fetch("transaction_type")
+      @transaction_type = args.fetch(:transaction_type)
     end
 
     def translate

@@ -7,14 +7,17 @@ describe CnabParser::DateNormalizer, '#normalize' do
   let(:date) { '20190319'}
   let(:time) { '153453' }
   let(:datetime_double) { class_double('DateTime') }
-  let(:args) { { "date" => date,
-                 "time" => time,
-                 "datetime_ruby_class" => datetime_double 
-             } }
+  let(:args) do 
+    { date: date,
+      time: time,
+      datetime_ruby_class: datetime_double 
+    }
+  end
+
   let(:expected_result) { '2019-03-19T15:34:53+00:00' }
 
   before do
-    allow(datetime_double).to receive(:parse).with(date+time).and_return("2019-03-19T15:34:53+00:00")
+    allow(datetime_double).to receive(:parse).with(date+time).and_return('2019-03-19T15:34:53+00:00')
     normalize
   end
 

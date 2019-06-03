@@ -7,8 +7,8 @@ describe CnabParser::StoreFinder, '#find_id' do
   let(:store_class_double) { double('Store') }
   let(:active_record_result) { double("Result", id: 1) }
 
-  let(:args) { { "store_name" => 'Lojao',
-                 "store_class" => store_class_double
+  let(:args) { { store_name: 'Lojao',
+                 store_class: store_class_double
              } }
   let(:expected_result) { 1 }
 

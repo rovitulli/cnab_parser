@@ -5,7 +5,7 @@ module CnabParser
     attr_reader :value
 
     def initialize(args)
-      @value = args.fetch("value")
+      @value = args.fetch(:value)
     end
 
     def calculate

@@ -9,12 +9,12 @@ class SanitizeNames
 
   def sanitize
     context.filedata.each do |transaction|
-      transaction["name"] = transaction["name"].strip.capitalize
-      transaction["owner"] = transaction["owner"].strip.capitalize
+      transaction[:name] = transaction[:name].strip.capitalize
+      transaction[:owner] = transaction[:owner].strip.capitalize
     end
   end
 
   def fail
-    context.fail!(message: "could not sanitize names")
+    context.fail!(message: 'could not sanitize names')
   end
 end

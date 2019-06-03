@@ -13,12 +13,12 @@ class MakeReadableType
 
   def readable_type
     context.filedata.each do |transaction|
-      args = { "transaction_type" => transaction["transaction_type"] }
-      transaction["readable_type"] = context.transaction_type_translator.new(args).translate
+      args = { transaction_type: transaction[:transaction_type] }
+      transaction[:readable_type] = context.transaction_type_translator.new(args).translate
     end
   end
 
   def fail
-    context.fail!(message: "Could make readable transaction type")
+    context.fail!(message: 'Could make readable transaction type')
   end
 end

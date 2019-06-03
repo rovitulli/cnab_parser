@@ -5,7 +5,7 @@ describe ValidateFileContent, '#call' do
 
   let(:input) { { filedata: file_data } }
 
-  let(:file_data) { [{ 'transaction_type'=>'3' }] }
+  let(:file_data) { [{ transaction_type: '3' }] }
 
   before do
     context

@@ -6,24 +6,25 @@ describe CnabParser::FileContentParser, '#parse' do
   let(:file_content_parser) { described_class.new(args) }
   let(:ruby_file_class) { class_double('File') }
   let(:file_path) { '/tmp/test.txt' }
-  let(:args) { { "file_path" => file_path,
-                 "ruby_file_class" => ruby_file_class
-             } }
+  let(:args) do 
+    { file_path: file_path,
+      ruby_file_class: ruby_file_class }
+  end
 
   #this must be exact like this
   let(:cnab_example) do
-    "3201903010000014200096206760174753****3153153453JOÃO MACEDO   BAR DO JOÃO       "
+    '3201903010000014200096206760174753****3153153453JOÃO MACEDO   BAR DO JOÃO       '
   end
 
   let(:expected_result) do 
-    { "card_number"=>"4753****3153",
-      "cpf_code"=>"09620676017",
-      "date"=>"20190301",
-      "name"=>"BAR DO JOÃO       ",
-      "owner"=>"JOÃO MACEDO   ",
-      "time"=>"153453",
-      "transaction_type"=>"3",
-      "value"=>"0000014200"}
+    { card_number: '4753****3153',
+      cpf_code: '09620676017',
+      date: '20190301',
+      name: 'BAR DO JOÃO       ',
+      owner: 'JOÃO MACEDO   ',
+      time: '153453',
+      transaction_type: '3',
+      value: '0000014200'}
   end
 
   before do

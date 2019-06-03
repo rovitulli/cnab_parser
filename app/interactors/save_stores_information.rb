@@ -13,9 +13,9 @@ class SaveStoresInformation
 
   def save_stores
     context.filedata.each do |store|
-      context.store_class.find_or_create_by(name: store['name']) do |st|
-        st.owner = store['owner']
-        st.cpf_code = store['cpf_code']
+      context.store_class.find_or_create_by(name: store[:name]) do |st|
+        st.owner = store[:owner]
+        st.cpf_code = store[:cpf_code]
       end
     end
   end

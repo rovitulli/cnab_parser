@@ -1,4 +1,4 @@
-CNAB parser.
+# CNAB parser
 
 A aplicação tem o objetivo de realizar o 'parse' de um arquivo '.txt' que contenha um código CNAB válido, tal qual como exemplificado no arquivo 'CNAB.txt'.
 
@@ -12,7 +12,6 @@ A partir da raíz da aplicação, execute o comando:
 
 ```
 docker-compose up --build
-
 ```
 A partir desse momento, Docker irá baixar as imagens necessárias para rodar o ambiente de desenvolvimento. Ao término do processo, um servidor estará escutando a porta 3000 do host (seu computador)
 
@@ -20,7 +19,6 @@ Acesse:
 
 ```
 localhost:3000
-
 ```
 
 A aplicação se conectará no database usando as configuracões básicas da images do Postgress.
@@ -53,18 +51,18 @@ Para realizar o parse do arquivo CNAB a aplicação utiliza o pattern da gem [In
 
 As etapadas do processo são:
 
-1 - Validação do arquivo TXT.
-2 - Armazenamento do arquivo em filesystem local.
-3 - Parseamento das informações do arquivo.
-4 - Validação do conteúdo do arquivo.
-5 - Sanitização dos nomes das lojas e respectivos proprietários.
-6 - Salvamento das informações das Lojas no banco de dados.
-7 - Fetch das informações das lojas no contexto da request.
-9 - Normalização do valor da transação.
-10 -Normalização das datas das transações.
-11 - Converte tipo da transação para formato legível.
-12 - Converte comportamento da transação (soma ou subtração).
-13 - Salva informações da transação no banco.
+- Validação do arquivo TXT.
+- Armazenamento do arquivo em filesystem local.
+- Parseamento das informações do arquivo.
+- Validação do conteúdo do arquivo.
+- Sanitização dos nomes das lojas e respectivos proprietários.
+- Salvamento das informações das Lojas no banco de dados.
+- Fetch das informações das lojas no contexto da request.
+- Normalização do valor da transação.
+- Normalização das datas das transações.
+- Converte tipo da transação para formato legível.
+- Converte comportamento da transação (soma ou subtração).
+- Salva informações da transação no banco.
 
 ## 4. Framework
 
@@ -82,7 +80,6 @@ Ou, sem docker,
 
 ```
 bundle exec rspec
-
 ```
 
 ## 6.Rubocop
@@ -98,7 +95,6 @@ Ou, sem docker,
 
 ```
 bundle exec rubocop
-
 ```
 
 ## 7. TODOs

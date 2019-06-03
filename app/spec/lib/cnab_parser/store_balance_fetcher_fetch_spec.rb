@@ -5,11 +5,13 @@ describe CnabParser::StoreBalanceFetcher, '#fetch' do
 
   let(:store_balance_fetcher) { described_class.new(args) }
   let(:store_class_double) { class_double('Store') }
-  let(:active_record_result) { double("Result", current_balance: expected_result) }
+  let(:active_record_result) { double('Result', current_balance: expected_result) }
 
-  let(:args) { { "store_id" => 1,
-                 "store_class" => store_class_double
-             } }
+  let(:args) do 
+    { store_id: 1,
+      store_class: store_class_double } 
+  end
+
   let(:expected_result) { 100 }
 
   before do

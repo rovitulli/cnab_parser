@@ -12,8 +12,8 @@ class StoreFile
   end
 
   def store
-    args = { "filename" => context.file[:filename],
-             "file" => context.file[:tempfile] }
+    args = { filename: context.file[:filename],
+             file: context.file[:tempfile] }
 
     context.file_storer.new(args).store
   end

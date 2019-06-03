@@ -8,7 +8,7 @@ describe MakeReadableType, '#call' do
       filedata: file_data }
   end
 
-  let(:file_data) { [ { "transaction_type"=>"3" }] }
+  let(:file_data) { [ { transaction_type: '3' }] }
 
   let(:translator_double) do
     class_double('CnabParser::TransactionTypeTranslator', new: translator_instance)
@@ -21,5 +21,5 @@ describe MakeReadableType, '#call' do
     context
   end
 
-  it { expect(context.filedata.first).to include("readable_type") }
+  it { expect(context.filedata.first).to include(:readable_type) }
 end

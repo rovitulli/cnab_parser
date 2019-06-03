@@ -4,7 +4,7 @@ class ApplicationController < Sinatra::Base
   enable :sessions
   register Sinatra::Contrib
   set :root, CnabParser::APP_DIR
-  set :session_secret, 'secure code ;-)'
+  set :session_secret, 'secure code'
   set :lock, true
 
   get '/' do
@@ -17,7 +17,7 @@ class ApplicationController < Sinatra::Base
     result = ProcessFile.call(params)
 
     if result.success?
-      session[:message] = "File upload successfully"
+      session[:message] = 'File upload successfully'
       redirect '/'
     else
       session[:message] = result.message
@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
 
   helpers do
     def transaction_behavior(transaction_type)
-      CnabParser::TransactionBehaviorTranslator.new({ 'transaction_type' => transaction_type.to_s }).translate.to_s
+      CnabParser::TransactionBehaviorTranslator.new({ transaction_type: transaction_type.to_s }).translate.to_s
     end
 
     def flash

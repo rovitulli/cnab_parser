@@ -4,14 +4,16 @@ describe SaveStoresInformation, '#call' do
   subject(:context) { described_class.call(input) }
 
   let(:input) { { store_class: store_class_double, filedata: file_data } }
-  let(:file_data) { [ { "transaction_type"=>"3",
-                      "date"=>"20190301",
-                      "value"=>"0000060200",
-                      "cpf_code"=>"23270298056",
-                      "card"=>"6777****1313",
-                      "time"=>"172712",
-                      "owner"=>"JOSÉ COSTA",
-                      "name"=>"Lojinha"}] }
+  let(:file_data) do 
+    [ { transaction_type:'3',
+        date:'20190301',
+        value:'0000060200',
+        cpf_code:'23270298056',
+        card:'6777****1313',
+        time:'172712',
+        owner:'JOSÉ COSTA',
+        name:'Lojinha'}]
+    end
 
   let(:store_class_double) do
     double('store_double')
@@ -22,7 +24,7 @@ describe SaveStoresInformation, '#call' do
   end
 
   before do
-    allow(store_class_double).to receive(:find_or_create_by).with(name: "Lojinha")
+    allow(store_class_double).to receive(:find_or_create_by).with(name: 'Lojinha')
                                                        .and_return(active_record_result)
     context
   end

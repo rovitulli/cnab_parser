@@ -22,26 +22,26 @@ class SaveTransactionsInformation
   end
 
   def fetch_store_balance(store_id)
-    args = {"store_id" => store_id }
+    args = {store_id: store_id }
     context.store_balance_fetcher.new(args).fetch
   end
 
   def save_transactions
     context.filedata.each do |transaction|
-      balance = calculate_balance(transaction["store_id"], transaction["value"], transaction["transaction_behavior"])
+      balance = calculate_balance(transaction[:store_id], transaction[:value], transaction[:transaction_behavior])
  
-      context.transaction_class.create(store_id: transaction["store_id"],
-                                       transaction_type: transaction["transaction_type"],
-                                       readable_type: transaction["readable_type"],
-                                       datetime: transaction["datetime"],
-                                       value: transaction["value"],
+      context.transaction_class.create(store_id: transaction[:store_id],
+                                       transaction_type: transaction[:transaction_type],
+                                       readable_type: transaction[:readable_type],
+                                       datetime: transaction[:datetime],
+                                       value: transaction[:value],
                                        balance: balance,
-                                       card_number: transaction["card_number"])
+                                       card_number: transaction[:card_number])
     end
   end
 
   def fail
-    context.fail!(message: "Could not save transaction")
+    context.fail!(message: 'Could not save transaction')
   end
 end
 

@@ -5,8 +5,8 @@ module CnabParser
     attr_reader :store_name, :store_class
 
     def initialize(args)
-      @store_name = args.fetch("store_name")
-      @store_class = args.fetch("store_class", Store)
+      @store_name = args.fetch(:store_name)
+      @store_class = args.fetch(:store_class, Store)
     end
 
     def find_id

@@ -4,7 +4,7 @@ describe CnabParser::TransactionTypeTranslator, '#translate' do
   subject(:translate) { transaction_type_translator.translate }
   let(:transaction_type_translator) { described_class.new(deps) }
 
-  let(:deps) { { 'transaction_type' => '3' } }
+  let(:deps) { { transaction_type: '3' } }
 
   before do
     translate

@@ -5,9 +5,9 @@ module CnabParser
     attr_reader :date, :time, :datetime_ruby_class
 
     def initialize(args)
-      @date = args.fetch("date")
-      @time = args.fetch("time")
-      @datetime_ruby_class = args.fetch("datetime_ruby_class", DateTime)
+      @date = args.fetch(:date)
+      @time = args.fetch(:time)
+      @datetime_ruby_class = args.fetch(:datetime_ruby_class, DateTime)
     end
 
     def normalize

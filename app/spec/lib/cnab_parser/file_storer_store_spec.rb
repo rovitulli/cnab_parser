@@ -10,10 +10,10 @@ describe CnabParser::FileStorer, '#store' do
   let(:file_path) { '/tmp/teste.txt' }
 
   let(:deps) do
-    { 'filename' => filename,
-      'file' => file,
-      'file_path' => file_path,
-      'ruby_file' => ruby_file }
+    { filename: filename,
+      file: file,
+      file_path: file_path,
+      ruby_file: ruby_file }
   end
 
   before do

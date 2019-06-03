@@ -14,12 +14,12 @@ class TransactionBehavior
 
   def fetch_behavior
     context.filedata.each do |transaction|
-      args = { "transaction_type" => transaction["transaction_type"] }
-      transaction["transaction_behavior"] = context.transaction_behavior_translator.new(args).translate
+      args = { transaction_type: transaction[:transaction_type] }
+      transaction[:transaction_behavior] = context.transaction_behavior_translator.new(args).translate
     end
   end
 
   def fail
-    context.fail!(message: "Could not fetch transaction behavior")
+    context.fail!(message: 'Could not fetch transaction behavior')
   end
 end

@@ -11,16 +11,6 @@ describe SaveTransactionsInformation, '#call' do
   end
 
   let(:transaction_info) do
-     {'balance' => 10,
-      'card_number' =>"6777****1313",
-      'datetime' => '12-3-2019',
-      'readable_type' => 'Financiamento',
-      'store_id' => 1,
-      'transaction_type' => "3",
-      'value' => "0000060200"}
-  end
-
-  let(:create_params) do
      {balance: 10,
       card_number: "6777****1313",
       datetime: '12-3-2019',
@@ -57,7 +47,7 @@ describe SaveTransactionsInformation, '#call' do
   end
 
   before do
-    allow(transaction_class_double).to receive(:create).with(create_params)
+    allow(transaction_class_double).to receive(:create).with(transaction_info)
                                                        .and_return(active_record_result)
     allow(balance_instance).to receive(:calculate).and_return(10)
     context

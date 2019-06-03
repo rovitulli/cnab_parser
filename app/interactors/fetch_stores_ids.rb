@@ -13,12 +13,12 @@ class FetchStoresIds
 
   def fetch
     context.filedata.each do |transaction|
-      store_id = context.store_class.find_by_name(transaction["name"]).id
-      transaction["store_id"] = store_id
+      store_id = context.store_class.find_by_name(transaction[:name]).id
+      transaction[:store_id] = store_id
     end
   end
 
   def fail
-    context.fail!(message: "Could not fetch store")
+    context.fail!(message: 'Could not fetch store')
   end
 end

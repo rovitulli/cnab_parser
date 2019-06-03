@@ -13,8 +13,12 @@ class NormalizeTransactionValue
 
   def normalize
     context.filedata.each do |transaction|
-      args = { "value" => transaction["value"] }
-      transaction["value"] = context.value_calculator.new(args).calculate
+      args = { value: transaction[:value] }
+      transaction[:value] = context.value_calculator.new(args).calculate
     end
+  end
+
+  def fail
+    context.fail!(message: 'Could not normalize value')
   end
 end
