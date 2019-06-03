@@ -34,7 +34,7 @@ class SaveTransactionsInformation
                                        datetime: transaction["datetime"],
                                        value: transaction["value"],
                                        balance: balance,
-                                       card_number: transaction["card"])
+                                       card_number: transaction["card_number"])
     end
   end
 

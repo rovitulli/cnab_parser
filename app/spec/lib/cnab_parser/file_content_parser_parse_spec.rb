@@ -15,14 +15,16 @@ describe CnabParser::FileContentParser, '#parse' do
     "3201903010000014200096206760174753****3153153453JOÃO MACEDO   BAR DO JOÃO       "
   end
 
-  let(:expected_result) { {"card"=>"4753****3153",
-                            "cpf_code"=>"09620676017",
-                            "date"=>"20190301",
-                            "name"=>"BAR DO JOÃO       ",
-                            "owner"=>"JOÃO MACEDO   ",
-                            "time"=>"153453",
-                            "transaction_type"=>"3",
-                            "value"=>"0000014200"} }
+  let(:expected_result) do 
+    { "card_number"=>"4753****3153",
+      "cpf_code"=>"09620676017",
+      "date"=>"20190301",
+      "name"=>"BAR DO JOÃO       ",
+      "owner"=>"JOÃO MACEDO   ",
+      "time"=>"153453",
+      "transaction_type"=>"3",
+      "value"=>"0000014200"}
+  end
 
   before do
     allow(ruby_file_class).to receive(:foreach).with(file_path).and_yield(cnab_example)
