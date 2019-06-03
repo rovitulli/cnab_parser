@@ -1,6 +1,6 @@
 # CNAB parser
 
-A aplicação tem o objetivo de realizar o 'parse' de um arquivo '.txt' que contenha um código CNAB válido, tal qual como exemplificado no arquivo ['CNAB.txt'](public/cnab.txt)
+A aplicação tem o objetivo de realizar o 'parse' de um arquivo '.txt' que contenha um código CNAB válido, tal qual como exemplificado no arquivo ['CNAB.txt'](./public/cnab.txt)
 
 Para realizar o upload, basta selecionar o arquivo requerido no campo de upload na página principal. Após a confirmação, a aplicação transformará os dados no arquivo em uma tabela com as transações das lojas referentes.
 
