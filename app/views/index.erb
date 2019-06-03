@@ -1,23 +1,53 @@
 <html>
     <head>
-        <title>Image Upload</title>
+        <title>Cnab Parser</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </head>
     <body>
-        <h1>Upload CNAB</h1>
-        
-        <form action="/proccess_file" method="POST" enctype="multipart/form-data">
-            <input type="file" name="file">
-            <input type="submit" value="Upload file">
-        </form>
-    </body>
-    <% @data.each do |store, content| %>
-        <h1><%= store %></h1>
-        <p><%= content[:info].owner %> ||| <%= content[:info].current_balance %> </p>
-        <p><%= content[:info].cpf_code %></p>
-        <% content[:transactions].each do |transaction| %>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Upload CNAB</h1>
             
-            <p><%= transaction.readable_type %>  <%= transaction.value %></p>
-        <% end %>
-    <% end %>
+            <form action="/proccess_file" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file">
+                <input type="submit" value="Upload file">
+            </form>
+        </div>
+
+        <% @data.each do |store, content| %>
+            <div> 
+                <h1><%= store %><h1>
+                <h6>CPF do beneficiado: <%=content[:info].cpf_code %></h6>
+                <h6>Responsável: <%= content[:info].owner %></h6>
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">Tipo de transação</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <% content[:transactions].each do |transaction| %>
+                        <tr>
+                            <th scope="row"><%= transaction.readable_type %></th>
+                            <td><%= transaction.datetime %></td>
+                            <td><%= transaction_behavior(transaction.transaction_type) %> R$ <%=transaction.value %></td>
+                        </tr>
+                    <% end %>
+                        <tr style="background-color:#efefef">
+                            <th>Saldo Final</th>
+                            <td></td>
+                            <td>R$<%= content[:info].current_balance %></td>
+                        </tr>
+                    </tbody>
+                    <tr>
+                </table>
+            </div>
+        <% end %>    
+    </div>
+    </body>
+    
 </html>
 

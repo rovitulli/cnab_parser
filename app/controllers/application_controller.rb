@@ -23,9 +23,15 @@ class ApplicationController < Sinatra::Base
     result = ProcessFile.call(params)
 
     if result.success?
-      result.inspect
+      redirect '/'
     else
       result.message
+    end
+  end
+
+  helpers do
+    def transaction_behavior(transaction_type)
+      CnabParser::TransactionBehaviorTranslator.new({ 'transaction_type' => transaction_type.to_s }).translate.to_s
     end
   end
 end
